@@ -13,12 +13,30 @@ namespace UnitTest
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(personNameInit)
 		{
-			/// TODO: test code here
+			//Setup
 			std::string name = "Bill";
+			
+			// Work
 			Person p(name);
+			
+			// Check
 			Assert::AreEqual(name, p.GetName());
+		}
+
+		TEST_METHOD(personNameSet)
+		{
+			// Setup
+			std::string name = "Bill", name2 = "Ben";
+
+			// Work
+			Person p(name);
+			p.SetName(name2);
+
+			// Check
+			Assert::AreNotEqual(name, p.GetName());
+			Assert::AreEqual(name2, p.GetName());
 		}
 	};
 }
